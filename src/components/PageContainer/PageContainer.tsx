@@ -24,7 +24,7 @@ export const PageContainer: FC<PageContainerProps> = ({
 	items,
 	fluid = true,
 }) => {
-	const {auth} = useAuthHandler()
+	// const {auth} = useAuthHandler()
 	const theme = useMantineTheme();
 	const titleColor = theme.colorScheme === 'dark' ? 'gray' : 'dark';
 
