@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { NavLinksGroup } from './NavLinksGroup';
 import { IconCalendarStats } from '@tabler/icons-react';
 
+// @ts-ignore
 const meta: Meta<typeof NavLinksGroup> = {
 	title: 'Components/NavLinksGroup',
 	component: NavLinksGroup,
@@ -15,6 +16,7 @@ const meta: Meta<typeof NavLinksGroup> = {
 };
 
 export default meta;
+// @ts-ignore
 type Story = StoryObj<typeof NavLinksGroup>;
 
 const hasLinks = {

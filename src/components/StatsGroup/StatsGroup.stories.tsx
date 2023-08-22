@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { StatsGroup } from '.';
 import { mockData } from './mock';
-
+// @ts-ignore
 const meta: Meta<typeof StatsGroup> = {
 	title: 'Components/StatsGroup',
 	component: StatsGroup,
@@ -14,6 +14,7 @@ const meta: Meta<typeof StatsGroup> = {
 };
 
 export default meta;
+// @ts-ignore
 type Story = StoryObj<typeof StatsGroup>;
 
 export const Default: Story = {

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { AdminHeader } from './AdminHeader';
 
+// @ts-ignore
 const meta: Meta<typeof AdminHeader> = {
 	title: 'Components/AdminHeader',
 	component: AdminHeader,
@@ -12,7 +13,9 @@ const meta: Meta<typeof AdminHeader> = {
 	},
 };
 
+
 export default meta;
+// @ts-ignore
 type Story = StoryObj<typeof AdminHeader>;
 
 export const Default: Story = {

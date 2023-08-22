@@ -1,7 +1,7 @@
 import { navLinks } from '@/config';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Navbar } from './Navbar';
-
+// @ts-ignore
 const meta: Meta<typeof Navbar> = {
 	title: 'Components/Navbar',
 	component: Navbar,
@@ -14,6 +14,7 @@ const meta: Meta<typeof Navbar> = {
 };
 
 export default meta;
+// @ts-ignore
 type Story = StoryObj<typeof Navbar>;
 
 export const Default: Story = {

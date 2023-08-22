@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { UserButton } from './UserButton';
 import { IconUser } from '@tabler/icons-react';
-
+// @ts-ignore
 const meta: Meta<typeof UserButton> = {
 	title: 'Components/UserButton',
 	component: UserButton,
@@ -14,6 +14,7 @@ const meta: Meta<typeof UserButton> = {
 };
 
 export default meta;
+// @ts-ignore
 type Story = StoryObj<typeof UserButton>;
 
 export const Default: Story = {
