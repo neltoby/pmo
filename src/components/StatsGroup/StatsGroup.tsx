@@ -26,7 +26,7 @@ export function StatsGroup({ data }: StatsGroupProps) {
 					<Text component="span" c={stat.diff > 0 ? 'green.4' : 'red.4'} fw={700}>
 						{stat.diff}% completed
 					</Text>{' '}
-					<Text c={theme.colors.blue}>{stat.durations}</Text>
+					<Text c={`${theme.colors.blue}`}>{stat.durations}</Text>
 				</Text>
 			</Card>
 		);

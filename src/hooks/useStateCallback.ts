@@ -7,7 +7,7 @@ import { useState, useCallback, useRef, useEffect } from 'react'
  */
 const useStateCallback = <S>(inputState: S | (() => S)) => {
   const [state, setState] = useState<S>(inputState)
-  const callbackRef = useRef(null)
+  const callbackRef = useRef<any>(null)
 
   const setStateCallback = useCallback<any>((state: S | (() => S), cb: Function) => {
     callbackRef.current = cb

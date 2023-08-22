@@ -1,6 +1,6 @@
-import { MantineThemeOverride } from '@mantine/core';
+import { ColorScheme, MantineThemeOverride } from '@mantine/core';
 
-export const useGlobalTheme = ({ colorScheme }) => {
+export const useGlobalTheme = ({ colorScheme }: {colorScheme: ColorScheme}) => {
 	const isDark = colorScheme === 'dark';
 
 	const globalTheme: MantineThemeOverride = {

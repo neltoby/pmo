@@ -1,8 +1,8 @@
 import { QueryFunction } from 'react-query'
 import { RecoilState, useSetRecoilState } from 'recoil'
 
-import useLazyQuery from '@commons/hooks/useLazyQuery'
-import useOptimizedEffect from '@commons/hooks/useOptimizedEffect'
+import useLazyQuery from '@/hooks/useLazyQuery'
+import useOptimizedEffect from '@/hooks/useOptimizedEffect'
 
 const useRecoilLazyQuery = <T>(queryKey: string, queryFunction: QueryFunction<T>, recoilState: RecoilState<T>) => {
   const queryResult = useLazyQuery(queryKey, queryFunction)
@@ -13,7 +13,7 @@ const useRecoilLazyQuery = <T>(queryKey: string, queryFunction: QueryFunction<T>
   //TODO: Handle fetching & error cases
   useOptimizedEffect(() => {
     if (isFetched) {
-      setState(data)
+      setState(data as any)
     }
   }, [isFetched])
 
