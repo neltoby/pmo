@@ -286,6 +286,13 @@
     react-remove-scroll "^2.5.5"
     react-textarea-autosize "8.3.4"
 
+"@mantine/dates@^6.0.19":
+  version "6.0.19"
+  resolved "https://registry.yarnpkg.com/@mantine/dates/-/dates-6.0.19.tgz#bd21473be47239722af7929a537f36d0d89d9875"
+  integrity sha512-+5t3ljSHuvADJeq2PkxzyLsyWQGsCCg7evz6PDdGyxkVknn9wzBMM9UZZVyB22H5c7qieDi0yoO2gQIXJzhxQg==
+  dependencies:
+    "@mantine/utils" "6.0.19"
+
 "@mantine/hooks@^6.0.19":
   version "6.0.19"
   resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-6.0.19.tgz#39f61434304f687d3ba7bf0040c5adf380c7c4b3"
@@ -512,6 +519,13 @@
   resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-2.31.0.tgz#b75c744a9d1e61c312da3df8cfbf3135a43409aa"
   integrity sha512-vueOF4rjM0wcYAHOq7gcQB3fU04EAfHIwP0i/DVQdopXv84uu62DvOFHhYj9d0OBiM4O0PPoXEvsT8IVZDrYXw==
 
+"@tanstack/match-sorter-utils@8.8.4":
+  version "8.8.4"
+  resolved "https://registry.yarnpkg.com/@tanstack/match-sorter-utils/-/match-sorter-utils-8.8.4.tgz#0b2864d8b7bac06a9f84cb903d405852cc40a457"
+  integrity sha512-rKH8LjZiszWEvmi01NR72QWZ8m4xmXre0OOwlRGnjU01Eqz/QnN+cqpty2PJ0efHblq09+KilvyR7lsbzmXVEw==
+  dependencies:
+    remove-accents "0.4.2"
+
 "@tanstack/query-core@4.33.0":
   version "4.33.0"
   resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-4.33.0.tgz#7756da9a75a424e521622b1d84eb55b7a2b33715"
@@ -524,6 +538,30 @@
   dependencies:
     "@tanstack/query-core" "4.33.0"
     use-sync-external-store "^1.2.0"
+
+"@tanstack/react-table@8.9.3":
+  version "8.9.3"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-table/-/react-table-8.9.3.tgz#03a52e9e15f65c82a8c697a445c42bfca0c5cfc4"
+  integrity sha512-Ng9rdm3JPoSCi6cVZvANsYnF+UoGVRxflMb270tVj0+LjeT/ZtZ9ckxF6oLPLcKesza6VKBqtdF9mQ+vaz24Aw==
+  dependencies:
+    "@tanstack/table-core" "8.9.3"
+
+"@tanstack/react-virtual@3.0.0-beta.54":
+  version "3.0.0-beta.54"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-virtual/-/react-virtual-3.0.0-beta.54.tgz#755979455adf13f2584937204a3f38703e446037"
+  integrity sha512-D1mDMf4UPbrtHRZZriCly5bXTBMhylslm4dhcHqTtDJ6brQcgGmk8YD9JdWBGWfGSWPKoh2x1H3e7eh+hgPXtQ==
+  dependencies:
+    "@tanstack/virtual-core" "3.0.0-beta.54"
+
+"@tanstack/table-core@8.9.3":
+  version "8.9.3"
+  resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.9.3.tgz#991da6b015f6200fdc841c48048bee5e197f6a46"
+  integrity sha512-NpHZBoHTfqyJk0m/s/+CSuAiwtebhYK90mDuf5eylTvgViNOujiaOaxNDxJkQQAsVvHWZftUGAx1EfO1rkKtLg==
+
+"@tanstack/virtual-core@3.0.0-beta.54":
+  version "3.0.0-beta.54"
+  resolved "https://registry.yarnpkg.com/@tanstack/virtual-core/-/virtual-core-3.0.0-beta.54.tgz#12259d007911ad9fce1388385c54a9141f4ecdc4"
+  integrity sha512-jtkwqdP2rY2iCCDVAFuaNBH3fiEi29aTn2RhtIoky8DTTiCdc48plpHHreLwmv1PICJ4AJUUESaq3xa8fZH8+g==
 
 "@types/json5@^0.0.29":
   version "0.0.29"
@@ -1070,6 +1108,11 @@ damerau-levenshtein@^1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/damerau-levenshtein/-/damerau-levenshtein-1.0.8.tgz#b43d286ccbd36bc5b2f7ed41caf2d0aba1f8a6e7"
   integrity sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==
+
+dayjs@^1.11.9:
+  version "1.11.9"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.9.tgz#9ca491933fadd0a60a2c19f6c237c03517d71d1a"
+  integrity sha512-QvzAURSbQ0pKdIye2txOzNaHmxtUBXerpY0FJsFXUMKbIZeFm5ht1LS/jFsrncjnmtv8HsG0W2g6c0zUjZWmpA==
 
 debug@^3.2.7:
   version "3.2.7"
@@ -2160,6 +2203,15 @@ lru-cache@^6.0.0:
   integrity sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==
   dependencies:
     yallist "^4.0.0"
+
+mantine-react-table@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/mantine-react-table/-/mantine-react-table-1.1.2.tgz#47473def83d6cc09f830dd2648f97d458fc0605b"
+  integrity sha512-IZGdqBEesrUW9wNODsFhRbZcIrQsvxNTU7Q5Tv4KLn+mV0YpKqYHC1jKu3jusUQbdXD1ZJf4cj2ZNnGOHbMOnA==
+  dependencies:
+    "@tanstack/match-sorter-utils" "8.8.4"
+    "@tanstack/react-table" "8.9.3"
+    "@tanstack/react-virtual" "3.0.0-beta.54"
 
 match-sorter@^6.0.2:
   version "6.3.1"

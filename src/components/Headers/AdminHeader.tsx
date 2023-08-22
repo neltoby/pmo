@@ -17,7 +17,7 @@ import { IconSearch, IconSettings } from '@tabler/icons-react';
 import { DirectionSwitcher } from '../DirectionSwitcher/DirectionSwitcher';
 import { Logo } from '../Logo/Logo';
 import { ThemeSwitcher } from '../ThemeSwitcher/ThemeSwitcher';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { allParastatals, allParastatalsWithLabels } from '@/utils/seed';
 
 interface Props {
@@ -49,7 +49,19 @@ export function AdminHeader({ burger }: Props) {
 		router.refresh()
 	}
 
-	return isLoading ? null :  (
+	useEffect(() => {
+		
+		if (isLoading) {
+			let setTime: string | number | NodeJS.Timeout | undefined
+			setTime = setTimeout(() => {
+				setIsLoading(false)
+			}, 500);
+		
+			return () => clearTimeout(setTime)
+		}
+	}, [isLoading])
+
+	return isLoading ? <div className='flex w-screen h-screen justify-center items-center text-lg'>Loading... </div> :  (
 		<Header height={60} withBorder={false} className={classes.header}>
 			{burger && burger}
 			<Logo />

@@ -11,6 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@mantine/core": "^6.0.19",
+    "@mantine/dates": "^6.0.19",
     "@mantine/hooks": "^6.0.19",
     "@mantine/modals": "^6.0.19",
     "@mantine/notifications": "^6.0.19",
@@ -24,8 +25,10 @@
     "axios": "^1.4.0",
     "camelize": "^1.0.1",
     "chart.js": "^4.3.3",
+    "dayjs": "^1.11.9",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
+    "mantine-react-table": "^1.1.2",
     "next": "13.4.12",
     "postcss": "8.4.27",
     "react": "18.2.0",

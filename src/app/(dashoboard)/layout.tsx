@@ -15,15 +15,15 @@ interface Props {
 	children: React.ReactNode;
 }
 
-// const queryClient = new QueryClient();
+const queryClient = new QueryClient();
 
 export default function DashboardLayout({ children }: Props) {
 	const [opened, setOpened] = useState(false);
 
 	return (
 	<>
-		{/*<RecoilRoot>
-	<QueryClientProvider client={queryClient}>*/}
+		<RecoilRoot>
+	<QueryClientProvider client={queryClient}>
 		<AppShell
 			fixed
 			navbar={<Wrapper hidden={!opened} />}
@@ -57,8 +57,8 @@ export default function DashboardLayout({ children }: Props) {
 		>
 			<Container fluid>{children}</Container>
 				</AppShell>
-				{/*</QueryClientProvider>
-	</RecoilRoot>*/}
+				</QueryClientProvider>
+	</RecoilRoot>
 				</>
 	);
 }
