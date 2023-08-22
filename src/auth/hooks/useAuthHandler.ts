@@ -1,6 +1,5 @@
 import { useRecoilState } from 'recoil'
 
-import { hasExpired } from '@/auth/utils/tokenUtils'
 import { KiaGoAuth } from '@/auth/models/auth'
 import { kiaGoAuthAtom } from '@/auth/state/atoms'
 
