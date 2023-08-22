@@ -32,6 +32,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 		setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
 	return (
+		<>
 			<RootStyleRegistry>
 				<ColorSchemeProvider
 					colorScheme={colorScheme}
@@ -49,6 +50,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 					</MantineProvider>
 				</ColorSchemeProvider>
 			</RootStyleRegistry>
-			{/* <ReactQueryDevtools initialIsOpen={false} /> */
+			{/* <ReactQueryDevtools initialIsOpen={false} /> */ }
+	</>
 	);
 }
