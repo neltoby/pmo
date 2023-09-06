@@ -46,6 +46,10 @@ export function Navbar({ data, hidden }: Props) {
 			p="md"
 			fixed
 			withBorder={false}
+			sx={() => ({
+				// backgroundImage: 'url(/logo.png)',
+				backgroundColor: '#171718',
+			})}
 		>
 			<MantineNavbar.Section grow className={classes.links} component={ScrollArea}>
 				<div className={classes.linksInner}>{links}</div>

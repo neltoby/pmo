@@ -62,7 +62,9 @@ export function AdminHeader({ burger }: Props) {
 	}, [isLoading])
 
 	return isLoading ? <div className='flex w-screen h-screen justify-center items-center text-lg'>Loading... </div> :  (
-		<Header height={60} withBorder={false} className={classes.header}>
+		<Header height={60} withBorder={false} className={classes.header} sx={() => ({
+			backgroundColor: '#171718'
+		})}>
 			{burger && burger}
 			<Logo />
 			<Box sx={{ flex: 1 }} />
@@ -73,7 +75,7 @@ export function AdminHeader({ burger }: Props) {
 				data={allParastatalsWithLabels}
 			/>
 			<ActionIcon onClick={open}>
-				<IconSettings size="1.25rem" />
+				<IconSettings size="1.2 5rem" />
 			</ActionIcon>
 
 			<Drawer

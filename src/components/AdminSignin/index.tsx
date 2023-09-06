@@ -29,7 +29,7 @@ const AdminSignin = () => {
     <Image className="mx-auto h-10 w-auto" width={500} height={500} src='/logo.png' alt="pmo-logo"/>
     <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Admin sign in</h2>
   </div>
-      <SigninComponent handleOnChangeEmail={handleOnChangeEmail} handleOnChangePassword={handleOnChangePassword} handleOnSubmit={ handleOnSubmit} email={email} password={password} />
+      <SigninComponent handleOnChangeEmail={handleOnChangeEmail} handleOnChangePassword={handleOnChangePassword} handleOnSubmit={ handleOnSubmit} email={email} password={password} isAdmin={false} />
   
 </div>
   )

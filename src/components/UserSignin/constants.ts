@@ -1,1 +1,1 @@
-export const SIGNIN_ADMIN = 'signinAdmin';
+export const SIGNIN_USER = 'signinUser';

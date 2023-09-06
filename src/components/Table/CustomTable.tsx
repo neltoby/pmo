@@ -9,10 +9,10 @@ type TableProp = {
 const CustomTable: FC<TableProp> = ({columns, data}) => {
   return (
     <MantineReactTable
-				columns={columns}
-				data={data}
-				mantinePaperProps={{ shadow: '0', withBorder: false }}
-			/>
+      columns={columns}
+      data={data}
+      mantinePaperProps={{ shadow: '0', withBorder: false }}
+    />
   )
 }
 

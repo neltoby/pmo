@@ -6,3 +6,5 @@ export const DEFAULT_KIA_GO_AUTH = {
     kiaGoUrl: 'http://localhost:4500',
   },
 }
+
+export const USER_DETAILS = 'userDetails'

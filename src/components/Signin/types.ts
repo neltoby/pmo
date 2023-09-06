@@ -6,4 +6,5 @@ export type SignInType = {
   handleOnSubmit: (e: FormEvent<HTMLFormElement>) => void;
   email: string;
   password: string;
+  isAdmin?: boolean;
 }

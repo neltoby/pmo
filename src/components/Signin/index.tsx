@@ -4,9 +4,10 @@ import Image from 'next/image'
 
 import Input from '@/shared/Input'
 import { SignInType } from './types'
+import Link from 'next/link'
 
 
-const Signin: FC<SignInType> = ({ email, password, handleOnChangeEmail, handleOnSubmit, handleOnChangePassword }) => {
+const Signin: FC<SignInType> = ({ email, password, handleOnChangeEmail, handleOnSubmit, handleOnChangePassword, isAdmin = true }) => {
   return (
     <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
       <form className="space-y-6" onSubmit={handleOnSubmit}>
@@ -21,7 +22,7 @@ const Signin: FC<SignInType> = ({ email, password, handleOnChangeEmail, handleOn
           <div className="flex items-center justify-between">
             <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">Password</label>
             <div className="text-sm">
-              <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+              <Link href="/forgot-password" className="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</Link>
             </div>
           </div>
           <div className="mt-2">
@@ -32,6 +33,11 @@ const Signin: FC<SignInType> = ({ email, password, handleOnChangeEmail, handleOn
         <div>
           <button type="submit" className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
         </div>
+        {isAdmin &&
+          <div className="text-sm text-indigo-600">
+            Are you a superadmin? <Link href="/admin/signin" className="font-semibold text-indigo-600 hover:text-indigo-500">Sign in</Link>
+          </div>
+        }
       </form>
     </div>
   )

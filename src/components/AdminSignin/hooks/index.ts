@@ -7,7 +7,6 @@ import { SIGNIN_ADMIN } from "../constants"
 import { useSignInAdminApi } from "../services"
 import { useEffect } from "react"
 import { kiaGoAuthAtom } from "@/auth/state/atoms"
-import { saveToLocalStorage } from "@/utils/fetch"
 
 export const useSigninAdmin = (val: AdminSigninType) => {
   const [authToken, setAuthToken] = useRecoilState(kiaGoAuthAtom)

@@ -1,16 +1,21 @@
 'use client'
+
+import { useParams } from 'next/navigation';
 import { Button, Flex, Modal, Paper, Space, TextInput, Title } from '@mantine/core'
 import { MRT_ColumnDef, MantineReactTable } from 'mantine-react-table'
 import { useState, useMemo } from 'react'
 import { ParastatalsType } from './SimpleTable'
-import Link from 'next/link'
 import { useDisclosure } from '@mantine/hooks'
+import Link from 'next/link'
 
 
 const DepartmentTable = () => {
+  const params = useParams();
   const [departments, setDepartment] = useState<string[]>([])
   const [opened, { open, close }] = useDisclosure(false);
   const [value, setValue] = useState<string>('')
+  const { parastatalId } = params
+  console.log(parastatalId, params, 'line 18')
 
   const handleCreateDepartment = () => {
     if (value) {
@@ -76,13 +81,13 @@ const DepartmentTable = () => {
       </Paper>
       <Modal centered opened={opened} onClose={close} closeOnClickOutside closeOnEscape title="Create Department">
         <Flex
-      mih={50}
-      gap="md"
-      justify="flex-start"
-      align="flex-start"
-      direction="row"
-      wrap="wrap"
-    >
+            mih={50}
+            gap="md"
+            justify="flex-start"
+            align="flex-start"
+            direction="row"
+            wrap="wrap"
+          >
           <TextInput
             placeholder="Name of department"
             label="Name of departnment"
@@ -94,12 +99,12 @@ const DepartmentTable = () => {
           />
           <Space h="md" />
           <Button
-          onClick={handleCreateDepartment}
-          color='#fff'
-          style={{ backgroundColor: '#00acee' }}
-        >
-          Create
-        </Button>
+            onClick={handleCreateDepartment}
+            color='#fff'
+            style={{ backgroundColor: '#00acee' }}
+          >
+            Create
+          </Button>
       </Flex>
       </Modal>
     </>

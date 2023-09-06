@@ -1,5 +1,5 @@
 import { ApiRequest } from '@/model/api'
-import { getLoginUrl } from '../router'
+import { getLoginUrl, getUserDetailsUrl } from '../router'
 
 /**
  * Login
@@ -23,5 +23,13 @@ export const loginApi = (params: LoginApiParams): ApiRequest => {
       Email: params.email,
       password: params.password,
     },
+  }
+}
+
+export const getUserDetailsApi = (): ApiRequest => {
+  const url = getUserDetailsUrl()
+  return {
+    url,
+    method: 'get',
   }
 }

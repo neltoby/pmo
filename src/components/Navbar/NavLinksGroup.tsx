@@ -20,7 +20,7 @@ const useStyles = createStyles(theme => ({
 		display: 'block',
 		width: '100%',
 		padding: `${theme.spacing.xs} ${theme.spacing.md}`,
-		color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
+		color: theme.white,
 		fontSize: theme.fontSizes.sm,
 		textDecoration: 'none',
 

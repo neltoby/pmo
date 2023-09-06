@@ -1,5 +1,5 @@
 import { Flex, Text, useMantineTheme } from '@mantine/core';
-import Link from 'next/link';
+import Image from "next/image"
 interface Props {
 	width?: string;
 	height?: string;
@@ -9,18 +9,7 @@ export const Logo: React.FC<Props> = () => {
 	const theme = useMantineTheme();
 	return (
 		<Flex direction="row" align="center" gap={4}>
-			{/* <Link href="/" style={{ textDecoration: 'none' }}> */}
-				<Text
-					color={theme.colorScheme === 'light' ? 'dark' : 'white'}
-					fw="bolder"
-					size="xl"
-				>
-					PMO
-					{/* <Text component="span" fw="normal" c="gray">
-						Admin
-					</Text> */}
-				</Text>
-			{/* </Link> */}
+			<Image className="" width={50} height={50} src='/logo.png' alt="pmo-logo"/>
 		</Flex>
 	);
 };

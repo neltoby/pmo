@@ -1,6 +1,6 @@
 'use client';
 
-import { useAuthHandler } from '@/hooks/useAuthHandler';
+import { useAuthHandler } from '@/auth/hooks/useAuthHandler';
 import {
 	Anchor,
 	Breadcrumbs,
@@ -10,7 +10,10 @@ import {
 	Title,
 	useMantineTheme,
 } from '@mantine/core';
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
+import { Widget } from 'react-chat-widget';
+import 'react-chat-widget/lib/styles.css';
+import logo from '../../../public/logo.png';
 
 type PageContainerProps = {
 	children: ReactNode;
@@ -18,18 +21,39 @@ type PageContainerProps = {
 	items?: { label: string; href: string }[];
 } & Pick<ContainerProps, 'fluid'>;
 
-export const PageContainer: FC<PageContainerProps> = ({
+export default function PageContainer({
 	children,
 	title,
 	items,
 	fluid = true,
-}) => {
-	// const {auth} = useAuthHandler()
+}: PageContainerProps) {
+	const {auth} = useAuthHandler()
 	const theme = useMantineTheme();
 	const titleColor = theme.colorScheme === 'dark' ? 'gray' : 'dark';
+	
+
+	const handleNewUserMessage = (msg: string) => {
+		console.log(msg)
+	}
 
 	return (
-		<Container px={0} fluid={fluid}>
+		<>
+		
+			<Container px={0} fluid={fluid}>
+				{/* <Snowfall
+					color="red"
+					// Applied to the canvas element
+					style={{ background: '#fff', position: 'absolute', top: 0, left: 0, height: '100%' }}
+					// Controls the number of snowflakes that are created (default 150)
+					snowflakeCount={700}
+					
+				/> */}
+				<Widget
+					handleNewUserMessage={handleNewUserMessage}
+          profileAvatar={logo}
+          title="The office of the PMO"
+          subtitle="Drop a message."				/>
+				
 			{items && items.length > 0 ? (
 				<Breadcrumbs>
 					{items.map(item => (
@@ -46,7 +70,9 @@ export const PageContainer: FC<PageContainerProps> = ({
 
 			<Space h="lg" />
 
-			{children}
-		</Container>
+				{children}
+				
+			</Container>
+			</>
 	);
 };

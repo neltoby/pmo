@@ -6,7 +6,7 @@ type InputProp = InputHTMLAttributes<HTMLInputElement> & {
 }
 
 const Input = ({ value, onChange, type, ...prop }: InputProp ) => {
-  return <input onChange={onChange} value={value} {...prop} />
+  return <input onChange={onChange} value={value} type={type} {...prop} />
 }
 
 export default Input

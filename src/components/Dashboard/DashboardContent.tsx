@@ -8,11 +8,8 @@ import { chartMockData, piechartMockData } from './mock';
 import { OverviewCardPropType } from './OverviewCard';
 import BarCharts from './BarChart';
 import PieCharts from './PieChart';
-import { useRecoilState } from 'recoil';
-import { kiaGoAuthAtom } from '@/auth/state/atoms';
 
-export function DashboardContent() {
-	const [authToken, setAuthToken] = useRecoilState(kiaGoAuthAtom)
+export default function DashboardContent() {
 	return (
 		<Grid>
 			<Grid.Col sm={12} md={12} lg={12}>

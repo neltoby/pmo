@@ -3,10 +3,12 @@ import Image from "next/image"
 
 import SigninComponent from "@/components/Signin"
 import { ChangeEvent, FormEvent, use, useCallback, useState } from "react"
+import { useSigninUser } from "./hooks"
 
 const UserSignin = () => {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
+  const { mutate } = useSigninUser({ email, password})
   const handleOnChangeEmail = useCallback((e: ChangeEvent<HTMLInputElement>) => { 
     setEmail(e.target.value)
   }, []);
@@ -15,6 +17,7 @@ const UserSignin = () => {
   }, [])
   const handleOnSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    mutate()
   }, [])
 
   return(

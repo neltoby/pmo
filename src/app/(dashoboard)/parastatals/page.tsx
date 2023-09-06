@@ -1,12 +1,10 @@
-import { PageContainer } from "@/components/PageContainer/PageContainer"
-import { PaginationTable } from "@/components/Table/PaginationTable"
-import { SimpleTable } from "@/components/Table/SimpleTable"
+import PageContainer from "@/components/PageContainer/PageContainer"
+import ParastatalsTable from "@/components/Parastatals/Parastatals"
 
 const Parastatals = () => {
   return (
     <PageContainer title="Parastatals">
-			<SimpleTable />
-			{/* <PaginationTable /> */}
+			<ParastatalsTable />
 		</PageContainer>
   )
 }

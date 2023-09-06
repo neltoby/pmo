@@ -1,29 +1,20 @@
 'use client';
 
 import { AdminHeader } from '@/components/Headers/AdminHeader';
-import { Navbar } from '@/components/Navbar/Navbar';
 import Wrapper from '@/components/Navbar/Wrapper';
-import { RootDependency } from '@/components/RootDependency';
-import { useGetRolesLinks } from '@/config/useGetRoles';
-// import { navLinks } from '@/config';
 import { AppShell, Burger, Container, Footer, MediaQuery, Text } from '@mantine/core';
 import { useState } from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { RecoilRoot } from 'recoil';
 
 interface Props {
 	children: React.ReactNode;
 }
 
-const queryClient = new QueryClient();
 
 export default function DashboardLayout({ children }: Props) {
 	const [opened, setOpened] = useState(false);
 
 	return (
 	<>
-		<RecoilRoot>
-	<QueryClientProvider client={queryClient}>
 		<AppShell
 			fixed
 			navbar={<Wrapper hidden={!opened} />}
@@ -53,12 +44,12 @@ export default function DashboardLayout({ children }: Props) {
 				backgroundColor:
 					theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
 				minHeight: '100vh',
+				// backgroundImage: 'url(/logo.png)'
+				// backgroundImage: 'linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5))',
 			})}
 		>
 			<Container fluid>{children}</Container>
 				</AppShell>
-				</QueryClientProvider>
-	</RecoilRoot>
 				</>
 	);
 }
