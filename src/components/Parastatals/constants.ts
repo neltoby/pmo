@@ -1,0 +1,1 @@
+export const PARASTATAL_LIST = 'parastatal-list'
