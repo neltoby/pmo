@@ -268,6 +268,7 @@ const Chats = () => {
                   messages.map((msg, i) => (
                     // @ts-ignore
                     <MessageBox
+                      key={msg.title + i}
                       replyButton={false}
                       focus={false}
                       titleColor=''

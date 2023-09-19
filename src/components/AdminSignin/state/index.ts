@@ -1,13 +1,11 @@
 import { atom } from "recoil";
-import { UserTypeRole } from "../model";
+import { Role } from "../model";
 import { recoilPersist } from 'recoil-persist'
 
 const { persistAtom } = recoilPersist()
 
-export const signInRole = atom<UserTypeRole>({
+export const signInRole = atom<Role | null>({
   key: "signInAdminRole",
-  default: {
-    role: null,
-  },
+  default: null,
   effects_UNSTABLE: [persistAtom]
 })

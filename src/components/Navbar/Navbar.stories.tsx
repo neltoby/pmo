@@ -18,5 +18,5 @@ export default meta;
 type Story = StoryObj<typeof Navbar>;
 
 export const Default: Story = {
-	render: () => <Navbar data={navLinks()} />,
+	render: () => <Navbar data={navLinks('')} />,
 };

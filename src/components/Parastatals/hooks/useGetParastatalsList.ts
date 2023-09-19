@@ -6,10 +6,9 @@ import { parastatalsListAtom } from "../state";
 import { useEffect } from "react";
 import { ParastatalsThemesListType } from "../model";
 
-export const useGetParastatalsList = () => {
+export const useGetParastatalsList = (themes = true) => {
   const setParastatalsList = useSetRecoilState<ParastatalsThemesListType[]>(parastatalsListAtom)
-  const { data, isLoading, error, refetch } = useApiQuery<ParastatalsThemesListType[]>(PARASTATAL_LIST, getParastatalsListApi(), false)
-  console.log(data, isLoading, error, 'line 12')
+  const { data = [], isLoading, error, refetch } = useApiQuery<ParastatalsThemesListType[]>(PARASTATAL_LIST, getParastatalsListApi(themes), false)
   
   useEffect(() => {
     if (data?.length) {

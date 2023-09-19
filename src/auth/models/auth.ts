@@ -1,13 +1,13 @@
 import { Role } from '@/components/AdminSignin/model'
 import camelize from 'camelize'
 
-export type KiaGoAuthResponse = {
-  kia_go_url: string
+export type PmoAuthResponse = {
+  pmo_url: string
   token: string
 }
 
-export type KiaGoAuth = {
-  kiaGoUrl: string
+export type PmoAuth = {
+  pmoUrl: string
   token: string
 }
 
@@ -31,9 +31,9 @@ export type UserDetails = {
   lastname: string;
   email: string;
   role: CreateRoles;
-  parastatals: string;
-  department: DepartmentType;
+  parastatal: string;
+  department: string;
   date: Date;
 }
 
-export const toKiaGoAuth = (response: KiaGoAuthResponse) => camelize(response)
+export const toPmoAuth = (response: PmoAuthResponse) => camelize(response)

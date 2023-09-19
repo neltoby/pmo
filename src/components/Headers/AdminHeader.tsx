@@ -4,21 +4,22 @@ import {
 	ActionIcon,
 	Autocomplete,
 	Box,
+	Button,
 	Drawer,
 	Header,
 	Select,
 	Stack,
-	TextInput,
 	createStyles,
 } from '@mantine/core';
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import { useDisclosure } from '@mantine/hooks';
-import { IconSearch, IconSettings } from '@tabler/icons-react';
+import { IconSettings } from '@tabler/icons-react';
 import { DirectionSwitcher } from '../DirectionSwitcher/DirectionSwitcher';
 import { Logo } from '../Logo/Logo';
 import { ThemeSwitcher } from '../ThemeSwitcher/ThemeSwitcher';
 import { useEffect, useState } from 'react';
-import { allParastatals, allParastatalsWithLabels } from '@/utils/seed';
+import { allParastatalsWithLabels } from '@/utils/seed';
+import { useLogoutUser } from './hooks/useLogoutUser';
 
 interface Props {
 	burger?: React.ReactNode;
@@ -40,8 +41,13 @@ export function AdminHeader({ burger }: Props) {
 	const { classes } = useStyles();
 	const [opened, { close, open }] = useDisclosure(false);
 	const router = useRouter()
+	const { mutate } = useLogoutUser()
 	const [value, setValue] = useState<string | null>(null)
 	const [isLoading, setIsLoading] = useState<boolean>(false)
+
+	const logout = () => {
+		mutate()
+	}
 
 	const handleSetValue = (val: string | null) => {
 		setIsLoading(true)
@@ -77,6 +83,7 @@ export function AdminHeader({ burger }: Props) {
 			<ActionIcon onClick={open}>
 				<IconSettings size="1.2 5rem" />
 			</ActionIcon>
+			<Button onClick={logout}>Logout</Button>
 
 			<Drawer
 				opened={opened}

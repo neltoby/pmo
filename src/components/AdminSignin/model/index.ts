@@ -6,14 +6,12 @@ export type AdminSigninType = {
 export enum Role {
   Staff = 'staff',
   Admin = 'admin',
-  ParastatalsHeads = 'parastatals',
-  DepartmentHeads = 'department',
-  SuperAdmin = 'superadmin',
+  ParastatalsHeads = 'hop',
+  DepartmentHeads = 'hod',
+  SuperAdmin = 'sadmin',
 }
 
-export type UserTypeRole = {
-  role: Role | null;
-}
+export type UserTypeRole = Role | null;
 
 export type ReturnValueType = {
    _id: string;
@@ -24,5 +22,5 @@ export type ReturnValueType = {
   date_verified: Date;
   date_created: Date;
   token: string;
-  roles: Role[]
+  roles: Role
 }

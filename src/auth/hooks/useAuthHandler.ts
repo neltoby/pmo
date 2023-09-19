@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useRecoilValue } from "recoil"
 import { redirect } from "next/navigation"
 
-import { kiaGoAuthAtom } from "@/auth/state/atoms"
+import { pmoAuthAtom } from "@/auth/state/atoms"
 import { UserTypeRole } from "@/components/AdminSignin/model"
 import { signInRole } from "@/components/AdminSignin/state"
 import useApiQuery from "../../hooks/useApiQuery"
@@ -11,7 +11,7 @@ import { USER_DETAILS } from "../constants"
 import { getUserDetailsApi } from "../services/auth"
 
 export const useAuthHandler = () => {
-  const auth = useRecoilValue(kiaGoAuthAtom)
+  const auth = useRecoilValue(pmoAuthAtom)
   const { refetch, data } = useApiQuery<UserDetails>(USER_DETAILS, getUserDetailsApi(), false)
   // if (!auth.token) {
   //   redirect('/')

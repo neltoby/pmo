@@ -13,7 +13,7 @@ const Parastatals = () => {
       {isLoading && <Paper>Loading...</Paper>}
       {error && <Paper>Something went wrong</Paper>}
       {data && data.map((item: ParastatalsThemesListType, i: number) => (
-        <Table data={item.parastatals} name={item.name} />
+        <Table key={item.Id} data={item.parastatals} name={item.name} />
       ))}
   </>
   )

@@ -11,18 +11,16 @@ export const useGetRolesLinks = () => {
   const {refetch, data }: {refetch: Function, data: UserDetails} = useAuthHandler()
 
   useEffect(() => { 
-    if (!role?.role) {
+    if (!role) {
       refetch()
     }
   }, [])
 
   useEffect(() => { 
     if (data) {
-      setRole({role: data?.role?.role})
+      setRole(role)
     }
   }, [])
   
-  console.log(role?.role)
-  return role?.role === Role.SuperAdmin ? navLinksSuperAdmin() : role?.role === Role.Admin ? navLinksAdmin() : role?.role === Role.ParastatalsHeads ? navLinksParastatalsHeads(data?.parastatals) : role?.role === Role.DepartmentHeads ? navLinksDepartmentsHeads : navLinks()
-  // return navLinksAdmin
+  return role === Role.SuperAdmin ? navLinksSuperAdmin() : role === Role.Admin ? navLinksAdmin() : role === Role.ParastatalsHeads ? navLinksParastatalsHeads(data?.parastatal) : role === Role.DepartmentHeads ? navLinksDepartmentsHeads({pid: data?.parastatal, did: data?.department}) : navLinks(data?.parastatal)
 }

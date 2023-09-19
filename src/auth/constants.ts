@@ -1,9 +1,9 @@
-export const KIA_GO_AUTH = 'kiaGoAuth'
-export const DEFAULT_KIA_GO_AUTH = {
-  key: KIA_GO_AUTH,
+export const PMO_AUTH = 'pmoAuth'
+export const DEFAULT_PMO_AUTH = {
+  key: PMO_AUTH,
   default: {
     token: '',
-    kiaGoUrl: 'http://localhost:4500',
+    pmoUrl: 'http://pmo-dev.us-east-1.elasticbeanstalk.com',
   },
 }
 

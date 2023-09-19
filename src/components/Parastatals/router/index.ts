@@ -1,4 +1,4 @@
 export const PARASTATAL_BASE_URL = 'parastatals'
 
 
-export const getParastatalsListUrl = () => `${PARASTATAL_BASE_URL}`;
+export const getParastatalsListUrl = (theme = true) =>  theme ? `${PARASTATAL_BASE_URL}?themes=${true}` : `${PARASTATAL_BASE_URL}?themes=${false}`;
