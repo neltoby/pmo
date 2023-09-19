@@ -13,7 +13,7 @@ const DepartmentId = ({
   params: { departmentId: string };
   searchParams?: { [key: string]: string | string[] | undefined };
   }) => {
-  console.log(params, 'line 16')
+
   return (
      <PageContainer title="Department">
 			<DepartmentIdComponent department={params.departmentId} />

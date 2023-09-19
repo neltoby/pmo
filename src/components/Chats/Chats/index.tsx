@@ -1,6 +1,6 @@
 'use client'
 import { Button, Flex, Textarea, createStyles } from '@mantine/core'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import "react-chat-elements/dist/main.css"
 import { Avatar, ChatList, ChatListEvent, IChatListProps, MessageBox, MessageBoxType } from "react-chat-elements";
 
@@ -106,8 +106,8 @@ const chatListData = [
 
 const Chats = () => {
   const { classes } = useStyles();
-  const [currentState, setCurrentState] = useState('chat')
-  const [chatList, setChatList] = useState<ChatListType>(chatListData)
+  const [currentState, setCurrentState] = useState('')
+  const [chatList, setChatList] = useState<ChatListType>([])
   const [currentUser, setCurrentUser] = useState<UserListChat | null>(null)
   const [messages, setMessages] = useState<MessageType[]>([])
   const [message, setMessage] = useState<string>('')
@@ -154,6 +154,10 @@ const Chats = () => {
       setMessages([])
     }
   }
+
+  useEffect(() => {
+    setChatList(chatListData)
+  },[])
   return (
       <Flex direction='column' sx={() => ({
         height: '80vh',
@@ -226,7 +230,8 @@ const Chats = () => {
             lazyLoadingImage=''
             className='chat-list'
             onClick={handleChatListClick}
-            dataSource={chatList} />
+            dataSource={chatList}
+          />
         </Flex>
         <Flex
           sx={() => ({
@@ -235,7 +240,7 @@ const Chats = () => {
           })}
           direction='column'
         >
-          {currentUser &&
+          {currentUser ?
             <>
               <Flex
                 direction='column'
@@ -318,6 +323,7 @@ const Chats = () => {
                 </Flex>
               </Flex>
             </>
+            : <></>
           }
         </Flex>
         {/* <div> */}

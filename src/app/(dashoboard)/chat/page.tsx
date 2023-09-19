@@ -1,5 +1,12 @@
-import Chats from "@/components/Chats/Chats"
-import PageContainer from "@/components/PageContainer/PageContainer"
+
+import dynamic from "next/dynamic"
+const PageContainer = dynamic(() => import("@/components/PageContainer/PageContainer"), {
+ssr: false,
+})
+
+const Chats = dynamic(() => import("@/components/Chats/Chats"), {
+ssr: false,
+})
 
 const Chat = () => {
   return (

@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic'
 import { useAuthHandler } from '@/auth/hooks/useAuthHandler';
 import {
 	Anchor,
@@ -10,10 +11,12 @@ import {
 	Title,
 	useMantineTheme,
 } from '@mantine/core';
-import { ReactNode } from 'react';
-import { Widget } from 'react-chat-widget';
+import { ReactNode, Suspense } from 'react';
+// import { Widget } from 'react-chat-widget';
 import 'react-chat-widget/lib/styles.css';
 import logo from '../../../public/logo.png';
+// @ts-ignore
+const Widget = dynamic(() => import("react-chat-widget").then((res) => res.Widget))
 
 type PageContainerProps = {
 	children: ReactNode;
@@ -48,11 +51,13 @@ export default function PageContainer({
 					snowflakeCount={700}
 					
 				/> */}
-				<Widget
-					handleNewUserMessage={handleNewUserMessage}
-          profileAvatar={logo}
-          title="The office of the PMO"
-          subtitle="Drop a message."				/>
+				<Suspense fallback={<div>Loading...</div>}>
+					<Widget
+						handleNewUserMessage={handleNewUserMessage}
+						profileAvatar={logo}
+						title="The office of the PMO"
+						subtitle="Drop a message." />
+				</Suspense>
 				
 			{items && items.length > 0 ? (
 				<Breadcrumbs>
