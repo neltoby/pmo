@@ -16,7 +16,7 @@ export const useSigninUser = () => {
   const [authToken, setAuthToken] = useRecoilState(pmoAuthAtom)
   const [visible, { toggle }] = useDisclosure(false);
   const [isErrorNotif, setIsErrorNotif] = useState(false)
-  const setRole = useSetRecoilState(signInRole)
+  const [role, setRole] = useRecoilState(signInRole)
   const userCred = useRecoilValue<UserSignInType>(userSigninDataAtom)
   const resetUser = useResetRecoilState(userSigninDataAtom)
   const { mutate, isSuccess, data, isLoading, isError, error, status } = useApiMutation<ReturnValueType>(SIGNIN_USER, loginUserApi(userCred))

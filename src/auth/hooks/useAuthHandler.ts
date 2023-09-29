@@ -12,6 +12,7 @@ import { defaultParastatals } from "@/components/Department/state/department.ato
 import { signInRole } from "@/components/AdminSignin/state"
 import { userDetailsState, userEditDetailsState } from "@/components/Profile/state"
 import { UserDetailsType } from "@/components/Profile/model"
+import { is } from "date-fns/locale"
 
 export const useAuthHandler = () => {
   const currentPage = usePathname()
@@ -22,7 +23,7 @@ export const useAuthHandler = () => {
   const setUser = useSetRecoilState<UserDetailsType>(userDetailsState)
   const setEditUser = useSetRecoilState<UserDetailsType>(userEditDetailsState)
   
-  const { refetch, data, error } = useApiQuery<UserDetails>(USER_DETAILS, getUserDetailsApi(), false)
+  const { refetch, data, error, isError } = useApiQuery<UserDetails>(USER_DETAILS, getUserDetailsApi(), false)
   const { signinRedirect } = useSigninRedirect(pid)
   console.log(error)
 
@@ -33,9 +34,10 @@ export const useAuthHandler = () => {
   }, [auth.token])
 
   useEffect(() => { 
-    if (error?.response.status == 401)
+    if (error?.response.status == 401) {
       setAuth(val => ({ ...val, token: '' }))
       setRole(null)
+    }
   }, [error])
 
   useEffect(() => { 
