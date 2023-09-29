@@ -1,6 +1,10 @@
 import { atom } from "recoil";
+import { recoilPersist } from 'recoil-persist'
+
+const { persistAtom } = recoilPersist()
 
 export const defaultParastatals = atom<string>({
   key: 'defaultParastatals',
-  default: '64f526926dbb5a4d6406206a',
+  default: '',
+  effects_UNSTABLE: [persistAtom]
 })

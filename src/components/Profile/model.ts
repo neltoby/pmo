@@ -3,9 +3,9 @@ export type UserDetailsType = {
   lastname: string;
   middlename: string;
   phoneno: string;
-  parastatals: string;
+  parastatal: string;
   department: string;
   birthdate: Date | null;
   email: string;
-  photourl: string;
+  profileImage: string;
 }

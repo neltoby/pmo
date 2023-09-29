@@ -10,22 +10,24 @@ import { useEffect, useState } from 'react'
 import { pmoAuthAtom } from '@/auth/state/atoms'
 import { useDisclosure } from '@mantine/hooks'
 import { signInRole } from '@/components/AdminSignin/state'
+import { useSigninRedirect } from './useSigninRedirect'
 
 export const useSigninUser = () => {
   const [authToken, setAuthToken] = useRecoilState(pmoAuthAtom)
   const [visible, { toggle }] = useDisclosure(false);
   const [isErrorNotif, setIsErrorNotif] = useState(false)
-  const [role, setRole] = useRecoilState(signInRole)
+  const setRole = useSetRecoilState(signInRole)
   const userCred = useRecoilValue<UserSignInType>(userSigninDataAtom)
   const resetUser = useResetRecoilState(userSigninDataAtom)
   const { mutate, isSuccess, data, isLoading, isError, error, status } = useApiMutation<ReturnValueType>(SIGNIN_USER, loginUserApi(userCred))
+  const { signinRedirect } = useSigninRedirect(data?.parastatal || '')
 
   useEffect(() => {
     if (isSuccess) {
       if (data?.role) {
         setAuthToken({ ...authToken, token: data.token })
         setRole(data.role)
-        redirect(data?.role === Role.Admin ? '/dashboard' : data?.role === Role.ParastatalsHeads ? `/dashboard/parastatals/${data.parastatal}` : data?.role === Role.DepartmentHeads ? `parastatals/${data?.parastatal}/department` : `parastatals/${data?.parastatal}/department`)
+        signinRedirect(data.role)
       }
     }
   }, [isSuccess])

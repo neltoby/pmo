@@ -1,5 +1,5 @@
 import dynamic, { LoaderComponent } from 'next/dynamic'
-const DepartmentComponent = dynamic(() => import("@/components/Department/Department"), {
+const AdminDepartment = dynamic(() => import("@/components/Department/AdminDepartment"), {
 ssr: false,
 })
 const PageContainer = dynamic(() => import("@/components/PageContainer/PageContainer"), {
@@ -9,7 +9,7 @@ ssr: false,
 const Department = () => {
   return (
     <PageContainer title="Department">
-			<DepartmentComponent />
+			<AdminDepartment />
 		</PageContainer>
   )
 }

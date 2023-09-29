@@ -1,26 +1,27 @@
 
 import { FC, useState } from "react"
-import { Input, MediaQuery, InputProps, Title, Box, Flex, Button } from "@mantine/core"
+import { Input, MediaQuery, Title, Box, Flex, Button } from "@mantine/core"
 import { EditInputType, MediaBoxType, ToggleType } from "./model"
 
-const MediaBox: FC<MediaBoxType> = ({children}) => {
-  return (
-    <MediaQuery largerThan='md' styles={(theme) => ({
-      width: '45%',
-      marginTop: '3rem',
-    })}>
-      {children}
-    </MediaQuery>
-  )
-}
+// const MediaBox: FC<MediaBoxType> = ({children}) => {
+//   return (
+//     <MediaQuery largerThan='md' styles={(theme) => ({
+//       width: '45%',
+//       marginTop: '3rem',
+//     })}>
+//       {children}
+//     </MediaQuery>
+//   )
+// }
 
-const EditInput: FC<EditInputType> = ({ id, label, placeholder, value, onChange, onSubmit, error = '' }) => {
+const EditInput: FC<EditInputType> = ({ id, label, placeholder, value, onChange, editValue, onSubmit, error = '' }) => {
   const [toggle, setToggle] = useState<ToggleType>(ToggleType.CLOSED)
   const onClick = () => {
     setToggle(ToggleType.OPEN)
   }
   const handleOnSubmit = () => { 
     setToggle(ToggleType.CLOSED)
+    onSubmit()
   }
   const handleUndo = () => setToggle(ToggleType.CLOSED)
   return (
@@ -36,12 +37,17 @@ const EditInput: FC<EditInputType> = ({ id, label, placeholder, value, onChange,
             {label}
           </Title>
           <Flex justify='space-between'>
-            <Box>
+            <Box >
               {value}
             </Box>
             <Button
               onClick={onClick}
-              sx={(theme) => ({ width: '10rem', backgroundColor: theme.colors.cyan })}
+              sx={(theme) => ({
+              color: theme.colors.cyan, backgroundColor: '#fff', border: `1px ${theme.colors.cyan} solid !important`, "&:hover": {
+                color: '#fff',
+                border: 'none',
+              }
+            })}
             >
               Edit {id}
             </Button>
@@ -65,18 +71,30 @@ const EditInput: FC<EditInputType> = ({ id, label, placeholder, value, onChange,
           >
             <Input sx={() => ({
               width: '100%',
-            })} name={id} value={value} onChange={onChange} size="lg" id={id} placeholder={placeholder} />
+            })} name={id} value={editValue} onChange={onChange} size="lg" id={id} placeholder={placeholder} />
           </Input.Wrapper>
           <Button
             onClick={handleOnSubmit}
-            sx={(theme) => ({ backgroundColor: theme.colors.cyan })}>Submit</Button>
+            sx={(theme) => ({
+              color: theme.colors.cyan, backgroundColor: '#fff', border: `1px ${theme.colors.cyan} solid !important`, "&:hover": {
+                color: '#fff',
+                border: 'none',
+              }
+            })}
+          >
+            Submit
+          </Button>
           <Button
             onClick={handleUndo}
             sx={(theme) => ({
               color: theme.colors.cyan, backgroundColor: '#fff', border: `1px ${theme.colors.cyan} solid !important`, "&:hover": {
                 color: '#fff',
                 border: 'none',
-            } })}>Undo</Button>
+              }
+            })}
+          >
+            Undo
+          </Button>
         </Flex>
       }
     </>

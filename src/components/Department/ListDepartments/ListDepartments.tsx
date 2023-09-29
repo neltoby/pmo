@@ -11,10 +11,12 @@ import { useGetDepartments } from './hooks/useGetDepartments'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { departmentListAtom } from './state'
 import { useAddDepartment } from './hooks/useAddDepartment'
+import { useParams } from 'next/navigation'
 
 
 const ListDepartments = () => {
-  const { isLoading, error } = useGetDepartments()
+  const { parastatalId } = useParams();
+  const { isLoading, error } = useGetDepartments(parastatalId as string)
   const data = useRecoilValue<DepartmentListReturnDataType | null>(departmentListAtom)
 
   const [opened, { open, close }] = useDisclosure(false);

@@ -5,6 +5,7 @@ export type MediaBoxType = {
 }
 
 export type EditInputType = {
+  editValue: string;
   label: string;
   id: string;
   error?: string;

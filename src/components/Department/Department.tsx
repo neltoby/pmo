@@ -75,7 +75,7 @@ const Department = () => {
       {data &&
         <>
           <Paper withBorder radius="md" p="md">
-            <Title order={5}>List of all Parastatals</Title>
+            <Title order={5}>List of all Department</Title>
             <Space h="md" />
             <MantineReactTable
               columns={data.department.length ? columnsWithData : columnsWithoutData}

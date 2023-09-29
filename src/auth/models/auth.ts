@@ -30,7 +30,7 @@ export type UserDetails = {
   firstname: string;
   lastname: string;
   email: string;
-  role: CreateRoles;
+  role: Role;
   parastatal: string;
   department: string;
   date: Date;

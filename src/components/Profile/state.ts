@@ -8,10 +8,25 @@ export const userDetailsState = atom<UserDetailsType>({
     lastname: '',
     middlename: '',
     phoneno: '',
-    parastatals: '',
+    parastatal: '',
     department: '',
     birthdate: null,
     email: '',
-    photourl: ''
+    profileImage: ''
+  }
+})
+
+export const userEditDetailsState = atom<UserDetailsType>({
+  key: 'userEditDetailsState',
+  default: {
+    firstname: '',
+    lastname: '',
+    middlename: '',
+    phoneno: '',
+    parastatal: '',
+    department: '',
+    birthdate: null,
+    email: '',
+    profileImage: ''
   }
 })

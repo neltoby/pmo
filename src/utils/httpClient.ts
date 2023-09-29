@@ -29,12 +29,13 @@ HttpClient.interceptors.request.use(onRequest);
 HttpClient.interceptors.response.use(onResponse);
 
 export const callApi = async (token: string, baseUrl: string, service: ApiRequest) => {
-	const { method, params, useQueryParams, url, body } = service;
+	const { method, params, useQueryParams, url, body, customHeaders } = service;
 
 	const requestConfig: AxiosRequestConfig = {
 		method,
 		headers: {
 			Authorization: `Bearer ${token}`,
+			...(customHeaders ? customHeaders : '')
 		},
 		url: `${baseUrl}/api/${url}`,
 		maxRedirects: 0,

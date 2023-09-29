@@ -29,11 +29,36 @@ const TablesForm: FC<TablesFormType> = ({ label, render , data }) => {
     return obj
   })
   const itemKeys = Object.keys(transformedData[0])
-  const columns = useMemo<MRT_ColumnDef<InsuranceDataType>[]>(
-    () => itemKeys.map((item: any) => ({
-      accessorKey: item,
-      header: removeDashAndCapitalize(item)
-    }))
+  // @ts-ignore
+  const columns = useMemo<MRT_ColumnDef<InsuranceDataType>[]>(() => {
+      let res = itemKeys.map((item: any, i: number) => {
+        if (i === itemKeys.length - 1) {
+          return [
+            {
+            accessorKey: item,
+            header: removeDashAndCapitalize(item),
+            },
+            {
+            accessorKey: item,
+            header: 'Status',
+              Cell: () => (
+                <Button
+                  color='#fff'
+                  style={{ backgroundColor: '#00acee' }}
+                >
+                  Not Approved
+                </Button>
+              )
+            }
+          ]
+        }
+        return {
+          accessorKey: item,
+          header: removeDashAndCapitalize(item),
+        }
+      })
+      return res.flat(Infinity)
+    }
   , [])
   return (
     <>

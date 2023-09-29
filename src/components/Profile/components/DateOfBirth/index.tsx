@@ -37,12 +37,14 @@ const DateOfBirth = () => {
             onChange={setDateValue}
           />
           <Button
+            variant='outline'
             onClick={onClick}
             sx={(theme) => ({ backgroundColor: theme.colors.cyan })}
           >
             Save
           </Button>
           <Button
+            variant='outline'
             onClick={handleUndo}
             sx={(theme) => ({ backgroundColor: theme.colors.cyan })}
           >
@@ -58,6 +60,7 @@ const DateOfBirth = () => {
               {parastatals.birthdate?.toString() as string}
             </Box>
             <Button
+              variant='outline'
               onClick={onClick}
               sx={(theme) => ({ backgroundColor: theme.colors.cyan })}
             >

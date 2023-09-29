@@ -10,7 +10,6 @@ import { ParastatalsThemesListType } from '@/components/Parastatals/model'
 import { IconCheck, IconEye, IconEyeOff, IconX } from '@tabler/icons-react'
 import { useDisclosure } from '@mantine/hooks'
 import { useCreateUser } from '../hooks/useCreateUser'
-// import { useGetParastatalsList } from '../hooks/useGetParastatals'
 
 export const formData = (data: ParastatalsThemesListType[]) => {
   let newArr: {value: string, label: string, group: string }[] = [];
@@ -35,7 +34,7 @@ const SignUp = () => {
     isvisible,
     isSuccess,
     error
-  } = useCreateUser()
+  } = useCreateUser();
   const [userData, setUserData] = useRecoilState<UserSignUpDataType>(userSignUpDataAtom)
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setUserData(val => ({...val, [e.target.name]: e.target.value}))

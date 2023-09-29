@@ -5,14 +5,14 @@ const PageContainer = dynamic(() => import("@/components/PageContainer/PageConta
 ssr: false,
 })
 
-const ParastatalsTable = dynamic(() => import("@/components/Parastatals/Parastatals"), {
+const AdminParastatal = dynamic(() => import("@/components/Parastatals/AdminParastatal"), {
 ssr: false,
 })
 
 const Parastatals = () => {
   return (
     <PageContainer title="Parastatals">
-			<ParastatalsTable />
+			<AdminParastatal />
 		</PageContainer>
   )
 }

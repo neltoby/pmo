@@ -1,16 +1,30 @@
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import { Box, Button, Flex, Select, Title } from '@mantine/core'
 import { ToggleType } from '../Input/model'
-import { useRecoilState } from 'recoil'
-import { userDetailsState } from '../../state'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { userDetailsState, userEditDetailsState } from '../../state'
 import { UserDetailsType } from '../../model'
+import { departmentListAtom } from '@/components/Department/ListDepartments/state'
+import { DepartmentName } from '@/components/Department/ListDepartments/model'
+import { ParastatalSelectType } from '../Parastatals'
 
-const DepartmentSelect = () => {
-  const [parastatals, setParastatals] = useRecoilState<UserDetailsType>(userDetailsState)
+const DepartmentSelect: FC<ParastatalSelectType> = ({ onSubmit }) => {
+  const user = useRecoilValue<UserDetailsType>(userDetailsState)
+  const setEditUser = useSetRecoilState<UserDetailsType>(userEditDetailsState)
+  const depts = useRecoilValue(departmentListAtom)
   const [toggle, setToggle] = useState<ToggleType>(ToggleType.CLOSED)
   const [searchValue, setSearchChange] = useState<string>('')
   const onClick = () => {
+    onSubmit()
+    setToggle(ToggleType.CLOSED)
+  }
+
+  const handleOpen = () => {
     setToggle(ToggleType.OPEN)
+  }
+
+  const onChange = (value: string) => { 
+    setEditUser(val => ({ ...val, department: value }))
   }
   const handleUndo = () => { 
     setToggle(ToggleType.CLOSED)
@@ -34,13 +48,9 @@ const DepartmentSelect = () => {
             searchable
             clearable
             onSearchChange={setSearchChange}
-            searchValue={searchValue || parastatals.parastatals}
-            data={[
-              { value: 'react', label: 'React' },
-              { value: 'ng', label: 'Angular' },
-              { value: 'svelte', label: 'Svelte' },
-              { value: 'vue', label: 'Vue' },
-            ]}
+            searchValue={searchValue}
+            onChange={onChange}
+            data={(depts?.department || []).map((dept: DepartmentName, i: number) => ({ label: dept.name, value: dept.name }))}
           />
           <Button
             onClick={onClick}
@@ -61,10 +71,10 @@ const DepartmentSelect = () => {
         >
           <Flex justify='space-between'>
             <Box>
-              {parastatals.parastatals}
+              {user.department || 'Not department selected' }
             </Box>
             <Button
-              onClick={onClick}
+              onClick={handleOpen}
               sx={(theme) => ({ backgroundColor: theme.colors.cyan })}
             >
               Edit department

@@ -6,8 +6,7 @@ import { useSetRecoilState } from 'recoil';
 import { departmentListAtom } from '../state';
 import { useEffect } from 'react';
 import { DepartmentListReturnDataType } from '../model';
-export const useGetDepartments = () => {
-  const { parastatalId } = useParams();
+export const useGetDepartments = (parastatalId: string) => {
   const setData = useSetRecoilState(departmentListAtom)
   const { data, isLoading, error, refetch } = useApiQuery<DepartmentListReturnDataType>(`${GET_DEPARTMENT_LIST}${parastatalId}`, getDepartmentListApi(parastatalId as string), false)
 

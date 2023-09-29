@@ -4,8 +4,12 @@ import Image from 'next/image'
 import Signup from './components/Signup'
 import { Paper } from '@mantine/core'
 import Link from 'next/link'
+import { useCheckLogin } from '@/auth/hooks/useCheckLogin'
 
 const SignUp = () => {
+  const { checkLogin } = useCheckLogin()
+  checkLogin()
+  
   return (
     <div className="flex min-h-screen flex-col justify-center items-center px-6 py-12 lg:px-8">
       <Paper sx={() => ({
